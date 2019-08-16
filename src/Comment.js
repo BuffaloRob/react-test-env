@@ -20,7 +20,7 @@ class Comment extends React.Component {
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="Center">
           <label>Enter Comment:</label>
           <input
             type='text'
