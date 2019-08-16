@@ -32,7 +32,7 @@ class Comment extends React.Component {
           <button type='submit'>Submit</button>
         </form>
 
-        <div>
+        <div className="Center">
           <ul>
             {this.state.comments.map((comment, index) => <li key={index}>{comment}</li>)}
           </ul>
