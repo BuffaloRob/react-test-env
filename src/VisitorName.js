@@ -1,29 +1,25 @@
 import React from 'react';
 
-class VisitorName extends React.Component {
-
-  state = {
-    name: '',
+// class VisitorName extends React.Component {
+const VisitorName = ({ updateVisitorName, visitorName }) => {
+  
+  const handleChange = e => {
+    updateVisitorName(e.target.value)
   }
 
-  handleChange = e => {
-    this.setState({ name: e.target.value })
-  }
+  return (
+    <div className="Center">
+      <input
+        type='text'
+        onChange={handleChange}
+        value={visitorName}
+        placeholder='Enter Your Name'
+        name='visitorName'
+      />
 
-  render() {
-    return (
-      <div className="Center">
-        <input
-          type='text'
-          onChange={this.handleChange}
-          value={this.state.name}
-          name='name'
-        />
-
-        <h3>{this.state.name}</h3>
-      </div>
-    )
-  }
+      <h3>{visitorName}</h3>
+    </div>
+  )
 }
 
 export default VisitorName;
