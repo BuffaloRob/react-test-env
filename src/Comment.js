@@ -1,32 +1,35 @@
 import React from 'react';
 
-class Comment extends React.Component {
-  state = {
-    comment: '',
-    comments: []
+// class Comment extends React.Component {
+//   state = {
+//     comment: '',
+//     comments: []
+//   }
+
+const Comment = ({ comment, comments, updateComment, submitComment }) => {
+
+  const handleChange = e => {
+    updateComment( e.target.value )
   }
 
-  handleChange = e => {
-    this.setState({ comment: e.target.value })
-  }
-
-  handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault()
-    let comment = e.target[0].value
-    this.setState({ comments: [...this.state.comments, comment] })
-    this.setState({ comment: '' })
+    submitComment(e.target[0].value)
+    // let comment = e.target[0].value
+    // this.setState({ comments: [...this.state.comments, comment] })
+    // this.setState({ comment: '' })
   }
 
-  render() {
+  // render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit} className="Center">
+        <form onSubmit={handleSubmit} className="Center">
           <label>Enter Comment:</label>
           <input
             type='text'
             name='comment'
-            value={this.state.comment}
-            onChange={this.handleChange}
+            value={comment}
+            onChange={handleChange}
           />
           <br />
           <button type='submit'>Submit</button>
@@ -34,12 +37,12 @@ class Comment extends React.Component {
 
         <div className="Center">
           <ul>
-            {this.state.comments.map((comment, index) => <li key={index}>{comment}</li>)}
+            {comments.map((comment, index) => <li key={index}>{comment}</li>)}
           </ul>
         </div>
       </>
     )
-  }
+  // }
 } 
 
 export default Comment;
